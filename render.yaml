@@ -1,0 +1,19 @@
+# Exported from Render on 2026-03-26T11:03:52Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: portfolioServer
+      runtime: node
+      repo: https://github.com/Manishkatari/portfolioServer
+      plan: free
+      envVars:
+      - key: MONGO_URI
+        sync: false
+      region: singapore
+      buildCommand: npn install
+      startCommand: npm  server.js
+      autoDeployTrigger: commit
