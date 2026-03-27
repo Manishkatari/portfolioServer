@@ -1,4 +1,3 @@
-// Import dependencies
 import express from "express";
 import cors from "cors";
 
@@ -43,6 +42,11 @@ app.use("/api/social", socialRoutes);
 // Default route
 app.get("/", (req, res) => {
   res.send("Portfolio Backend API Running...");
+});
+
+// Health check route
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
 });
 
 // Error handling middleware
